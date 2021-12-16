@@ -1,0 +1,54 @@
+[
+   {
+      "type":"Married",
+      "firstName":"Cristian",
+      "lastName":"Quispe Ramirez",
+      "families":[
+         {
+            "type":"Teen",
+            "age":18,
+            "firstName":"Linus",
+            "lastName":"Quispe Quispe",
+            "families": [
+              {
+               "firstName": "Lee",
+                 "type":"Child"
+              }
+            ]
+         },
+         {
+            "type":"Child",
+            "firstName":"Cesia",
+            "lastName":"Quispe Quispe"
+         }
+      ]
+   },
+    {
+       "type":"Married",
+       "firstName":"Erika",
+       "document":{
+          "type":"DNI",
+          "number":44094436
+       },
+       "families":[
+          {
+             "type":"Child",
+             "firstName":"Leiry"
+          }
+       ]
+    },
+    {
+       "type":"Single",
+       "firstName":"Selmida",
+       "lastName":"Quispe Ramirez",
+       "document":{
+          "type":"DNI",
+          "number":44345676
+       }
+    },
+    {
+       "type":"Single",
+       "firstName":"Rosmery",
+       "lastName":"Quispe Ramirez"
+    }
+ ]

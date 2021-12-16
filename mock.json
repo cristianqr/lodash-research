@@ -1,0 +1,2131 @@
+[
+    {
+        "id": "episodes",
+        "type": "MODULES",
+        "modules": [
+            {
+                "moduleId": "episodes_1",
+                "moduleType": "VIEW_TITLE",
+                "config": {
+                    "titleFragments": [
+                        "All episodes"
+                    ]
+                }
+            },
+            {
+                "moduleId": "episodes_2",
+                "moduleType": "SECTION_WRAPPER",
+                "config": {
+                    "title": {
+                        "label": "All episodes"
+                    }
+                },
+                "modules": [
+                    {
+                        "moduleId": "episodes_3",
+                        "moduleType": "CAROUSEL",
+                        "config": {
+                            "requestId": "ALL_EPISODES"
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "query": {
+            "cannedquery-top10ArtPodcasts": {
+                "name": "Top 10 Art Podcasts",
+                "query": "{\"script\":{\"lang\":\"mustache\",\"source\":{\"from\":0,\"size\":\"{{size}}{{^size}}10{{/size}}\",\"query\":{\"bool\":{\"must\":[{\"match\":{\"genres.keyword\":\"Art\"}},{\"match\":{\"entitySubtype.keyword\":\"PODCAST\"}}]}}}}}",
+                "queryId": "cannedquery-top10ArtPodcasts",
+                "entityType": [
+                    "SHOW"
+                ],
+                "entitySubtype": [
+                    "PODCAST"
+                ]
+            },
+            "cannedquery-topPodcastsByGenre": {
+                "name": "Top Podcasts By Genre",
+                "query": "{\"script\":{\"lang\":\"mustache\",\"source\":{\"from\":0,\"size\":\"{{size}}{{^size}}10{{/size}}\",\"query\":{\"bool\":{\"must\":[{\"match\":{\"genres.keyword\":\"{{genre}}\"}},{\"match\":{\"entitySubtype.keyword\":\"PODCAST\"}}]}}}}}",
+                "queryId": "cannedquery-topPodcastsByGenre",
+                "entityType": [
+                    "SHOW"
+                ],
+                "entitySubtype": [
+                    "PODCAST"
+                ],
+                "params": [
+                    "genre"
+                ]
+            }
+        },
+        "id": "podcasts",
+        "type": "MODULES",
+        "modules": [
+            {
+                "moduleId": "podcasts_1",
+                "moduleType": "VIEW_TITLE",
+                "config": {
+                    "titleFragments": [
+                        "All Podcasts"
+                    ]
+                }
+            },
+            {
+                "moduleId": "podcasts_2",
+                "moduleType": "SECTION_WRAPPER",
+                "config": {
+                    "title": {
+                        "label": "Art"
+                    }
+                },
+                "modules": [
+                    {
+                        "moduleId": "podcasts_3",
+                        "moduleType": "CAROUSEL",
+                        "config": {
+                            "contentQuery": {
+                                "queryId": "cannedquery-top10ArtPodcasts",
+                                "contentQueryModuleType": "ENTITY_CARD_VERTICAL",
+                                "min": 3,
+                                "max": 15
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "moduleId": "podcasts_4",
+                "moduleType": "SECTION_WRAPPER",
+                "config": {
+                    "title": {
+                        "label": "Business Podcasts"
+                    }
+                },
+                "modules": [
+                    {
+                        "moduleId": "podcasts_5",
+                        "moduleType": "CAROUSEL",
+                        "config": {
+                            "contentQuery": {
+                                "queryId": "cannedquery-topPodcastsByGenre",
+                                "contentQueryModuleType": "ENTITY_CARD_VERTICAL",
+                                "min": 3,
+                                "max": 15,
+                                "params": {
+                                    "genre": "Business"
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "stations",
+        "type": "MODULES",
+        "modules": [
+            {
+                "moduleId": "stations_1",
+                "moduleType": "VIEW_TITLE",
+                "config": {
+                    "titleFragments": [
+                        "All Stations Directory"
+                    ],
+                    "type": "LARGE"
+                }
+            },
+            {
+                "moduleId": "stations_2",
+                "moduleType": "SECTION_WRAPPER",
+                "config": {
+                    "title": {
+                        "label": "Local stations"
+                    }
+                },
+                "modules": [
+                    {
+                        "moduleId": "stations_3",
+                        "moduleType": "CAROUSEL",
+                        "modules": [
+                            {
+                                "moduleId": "stations_4",
+                                "moduleType": "ENTITY_CARD_HORIZONTAL",
+                                "config": {
+                                    "contentId": "101-930",
+                                    "entityImageShape": "SQUARE"
+                                }
+                            },
+                            {
+                                "moduleId": "stations_5",
+                                "moduleType": "ENTITY_CARD_HORIZONTAL",
+                                "config": {
+                                    "contentId": "101-475",
+                                    "entityImageShape": "SQUARE"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "content": {
+            "101-475": {
+                "contentId": "101-475",
+                "entityType": "STATION",
+                "entitySubType": "BROADCAST_RADIO",
+                "title": "CBS Sports Radio 1300"
+            },
+            "101-930": {
+                "contentId": "101-930",
+                "entityType": "STATION",
+                "entitySubType": "BROADCAST_RADIO",
+                "title": "1660 The Score"
+            }
+        }
+    },
+    {
+        "id": "stations_default",
+        "type": "MODULES",
+        "modules": [
+            {
+                "moduleId": "stations_default_1",
+                "moduleType": "VIEW_TITLE",
+                "config": {
+                    "titleFragments": [
+                        "Exclusive Stations"
+                    ]
+                }
+            },
+            {
+                "moduleId": "stations_default_2",
+                "moduleType": "STATION_LIVE_NOW",
+                "config": {
+                    "title": {
+                        "label": "Live Now"
+                    }
+                }
+            },
+            {
+                "moduleId": "stations_default_3",
+                "moduleType": "SECTION_WRAPPER",
+                "config": {
+                    "title": {
+                        "label": "Similar Stations",
+                        "viewType": "AllStations"
+                    }
+                },
+                "modules": [
+                    {
+                        "moduleId": "stations_default_4",
+                        "moduleType": "CAROUSEL",
+                        "modules": [
+                            {
+                                "moduleId": "stations_default_5",
+                                "moduleType": "ENTITY_CARD_HORIZONTAL",
+                                "config": {
+                                    "contentId": "test-station:2"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "content": {
+            "test-station:2": {
+                "contentId": "test-station:2",
+                "entityType": "Station",
+                "entitySubType": "Internet Radio",
+                "title": "TemporeSedRadio"
+            }
+        }
+    },
+    {
+        "id": "episodes_default",
+        "type": "EPISODE",
+        "modules": [
+            {
+                "moduleId": "episodes_default_1",
+                "moduleType": "VIEW_TITLE",
+                "config": {
+                    "titleFragments": [
+                        "Episode Default"
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        "id": "exclusivestations_default",
+        "type": "MODULES",
+        "modules": [
+            {
+                "moduleId": "exclusivestations_default_1",
+                "moduleType": "VIEW_TITLE",
+                "config": {
+                    "titleFragments": [
+                        "Exclusive Stations"
+                    ]
+                }
+            },
+            {
+                "moduleId": "exclusivestations_default_2",
+                "moduleType": "SECTION_WRAPPER",
+                "config": {
+                    "title": {
+                        "label": "Live Now"
+                    }
+                },
+                "modules": [
+                    {
+                        "moduleId": "exclusivestations_default_3",
+                        "moduleType": "CAROUSEL",
+                        "config": {
+                            "requestId": "LIVE_NOW"
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "query": {
+            "cannedquery-fiveMostRecentEpisodes": {
+                "name": "Five Most Recent Episodes",
+                "query": "{\"script\":{\"lang\":\"mustache\",\"source\":{\"from\":0,\"size\":\"{{size}}{{^size}}5{{/size}}\",\"query\":{\"bool\":{\"must\":[{\"term\":{\"entityType.keyword\":\"EPISODE\"}},{\"match\":{\"relationships.shows.keyword\":\"{{contentId}}\"}}]}},\"sort\":[{\"publishDate\":{\"order\":\"desc\"}}]}}}",
+                "queryId": "cannedquery-fiveMostRecentEpisodes",
+                "entityType": [
+                    "EPISODE"
+                ],
+                "entitySubtype": [
+                    "UNKNOWN"
+                ],
+                "params": [
+                    "contentId"
+                ]
+            }
+        },
+        "id": "podcasts_default",
+        "type": "SHOW",
+        "modules": [
+            {
+                "moduleId": "podcasts_default_1",
+                "moduleType": "VIEW_TITLE",
+                "config": {
+                    "titleFragments": [
+                        "Podcast Default"
+                    ]
+                }
+            },
+            {
+                "moduleId": "podcasts_default_2",
+                "moduleType": "SECTION_WRAPPER",
+                "config": {
+                    "title": {
+                        "label": "Latest Episode",
+                        "viewType": "SHOW",
+                        "viewIdTemplate": "latest-episode_<contentId>"
+                    }
+                },
+                "modules": [
+                    {
+                        "moduleId": "podcasts_default_3",
+                        "moduleType": "CAROUSEL",
+                        "config": {
+                            "requestId": "PREVIOUS_EPISODE"
+                        }
+                    }
+                ]
+            },
+            {
+                "moduleId": "podcasts_default_4",
+                "moduleType": "SECTION_WRAPPER",
+                "config": {
+                    "title": {
+                        "label": "All Episodes",
+                        "viewType": "PODCAST",
+                        "viewIdTemplate": "all-episodes_<contentId>"
+                    }
+                },
+                "modules": [
+                    {
+                        "moduleId": "podcasts_default_5",
+                        "moduleType": "CAROUSEL",
+                        "config": {
+                            "contentQuery": {
+                                "queryId": "cannedquery-fiveMostRecentEpisodes",
+                                "contentQueryModuleType": "ENTITY_CARD_VERTICAL",
+                                "min": 0,
+                                "max": 0,
+                                "params": {
+                                    "contentId": "contentId"
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "search",
+        "type": "MODULES",
+        "modules": [
+            {
+                "moduleId": "search_1",
+                "moduleType": "VIEW_TITLE",
+                "config": {
+                    "titleFragments": [
+                        "Browse Suggestions"
+                    ],
+                    "type": "LARGE"
+                }
+            },
+            {
+                "moduleId": "search_2",
+                "moduleType": "SECTION_WRAPPER",
+                "config": {
+                    "title": {
+                        "label": "a",
+                        "viewType": "MODULES",
+                        "viewId": "music"
+                    },
+                    "header": {
+                        "label": "b",
+                        "viewType": "MODULES",
+                        "viewId": "newstalk"
+                    },
+                    "footer": {
+                        "label": "c",
+                        "viewType": "STATION",
+                        "viewId": "stations-schedule",
+                        "contentId": "201-050cc5f4-1b4a-47c5-b072-3b00ee652185"
+                    }
+                },
+                "modules": [
+                    {
+                        "moduleId": "search_3",
+                        "moduleType": "CAROUSEL",
+                        "modules": [
+                            {
+                                "moduleId": "search_4",
+                                "moduleType": "SEARCH_PILL",
+                                "config": {
+                                    "contentId": "f75152bc-8878-4841-b80e-4628444a6597",
+                                    "label": "MLB"
+                                }
+                            },
+                            {
+                                "moduleId": "search_5",
+                                "moduleType": "SEARCH_PILL",
+                                "config": {
+                                    "contentId": "728e31e1-5dec-4541-83de-c66a834284e1",
+                                    "label": "Atlanta Braves"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "moduleId": "search_7",
+                "moduleType": "SECTION_WRAPPER",
+                "modules": [
+                    {
+                        "moduleId": "search_8",
+                        "moduleType": "CAROUSEL",
+                        "modules": [
+                            {
+                                "moduleId": "search_9",
+                                "moduleType": "ENTITY_CARD_IMAGE_GROUP",
+                                "config": {
+                                    "contentId": "101-2189",
+                                    "title": "News Stuff",
+                                    "images": [
+                                        "https://images.radio.com/salem/logos/WPGP-AM_logo.png",
+                                        "https://images.radio.com/logos/KRMG_radio-com.jpg",
+                                        "https://images.radio.com/salem/logos/WORL-AM_logo.png",
+                                        "https://images.radio.com/logos/BloombergBoston.png"
+                                    ],
+                                    "altText": "News Stuff Alt Text",
+                                    "viewId": "stations-schedule_101-2189",
+                                    "viewType": "STATION"
+                                }
+                            },
+                            {
+                                "moduleId": "search_10",
+                                "moduleType": "ENTITY_CARD_IMAGE_GROUP",
+                                "config": {
+                                    "contentId": "101-2521",
+                                    "title": "Tile Two",
+                                    "images": [
+                                        "https://images.radio.com/logos/WTICAM.jpg",
+                                        "https://images.radio.com/logos/WHIOLogo.jpg",
+                                        "https://images.radio.com/salem/logos/WDTK-AM_logo.png",
+                                        "https://images.radio.com/logos/WSBAM.png"
+                                    ],
+                                    "altText": "Tile Two Alternative Text",
+                                    "viewId": "stations-schedule_101-2521",
+                                    "viewType": "STATION"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "content": {
+            "f75152bc-8878-4841-b80e-4628444a6597": {
+                "entityType": "TAG",
+                "entitySubtype": "League",
+                "contentId": "f75152bc-8878-4841-b80e-4628444a6597",
+                "title": "MLB"
+            },
+            "728e31e1-5dec-4541-83de-c66a834284e1": {
+                "entityType": "TAG",
+                "entitySubtype": "Team",
+                "contentId": "728e31e1-5dec-4541-83de-c66a834284e1",
+                "title": "Atlanta Braves"
+            }
+        }
+    },
+    {
+        "id": "foryou",
+        "type": "MODULES",
+        "modules": [
+            {
+                "moduleId": "foryou_1",
+                "moduleType": "VIEW_TITLE",
+                "config": {
+                    "titleFragments": [
+                        "For You"
+                    ],
+                    "type": "LARGE"
+                }
+            },
+            {
+                "moduleId": "foryou_2",
+                "moduleType": "SECTION_WRAPPER",
+                "config": {
+                    "title": {
+                        "label": "Stories"
+                    }
+                }
+            },
+            {
+                "moduleId": "foryou_4",
+                "moduleType": "SECTION_WRAPPER",
+                "config": {
+                    "title": {
+                        "label": "Featured",
+                        "viewType": "MODULES",
+                        "viewId": "music"
+                    }
+                },
+                "modules": [
+                    {
+                        "moduleId": "foryou_5",
+                        "moduleType": "CAROUSEL",
+                        "modules": [
+                            {
+                                "moduleId": "foryou_6",
+                                "moduleType": "ENTITY_CARD_VERTICAL",
+                                "config": {
+                                    "contentId": "test-show:1"
+                                }
+                            },
+                            {
+                                "moduleId": "foryou_7",
+                                "moduleType": "ENTITY_CARD_VERTICAL",
+                                "config": {
+                                    "contentId": "test-show:8"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "moduleId": "foryou_8",
+                "moduleType": "SECTION_WRAPPER",
+                "config": {
+                    "title": {
+                        "label": "Top Local Stations",
+                        "viewType": "AllStations"
+                    }
+                },
+                "modules": [
+                    {
+                        "moduleId": "foryou_9",
+                        "moduleType": "CAROUSEL",
+                        "modules": [
+                            {
+                                "moduleId": "foryou_10",
+                                "moduleType": "ENTITY_CARD_VERTICAL",
+                                "config": {
+                                    "contentId": "test-station:1"
+                                }
+                            },
+                            {
+                                "moduleId": "foryou_11",
+                                "moduleType": "ENTITY_CARD_VERTICAL",
+                                "config": {
+                                    "contentId": "test-station:2"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "moduleId": "foryou_12",
+                "moduleType": "SECTION_WRAPPER",
+                "config": {
+                    "title": {
+                        "label": "Latest News"
+                    }
+                },
+                "modules": [
+                    {
+                        "moduleId": "foryou_13",
+                        "moduleType": "CAROUSEL",
+                        "modules": [
+                            {
+                                "moduleId": "foryou_14",
+                                "moduleType": "ENTITY_CARD_HORIZONTAL",
+                                "config": {
+                                    "contentId": "test-show:2",
+                                    "entityImageShape": "SQUARE"
+                                }
+                            },
+                            {
+                                "moduleId": "foryou_15",
+                                "moduleType": "ENTITY_CARD_HORIZONTAL",
+                                "config": {
+                                    "contentId": "test-show:1",
+                                    "entityImageShape": "SQUARE"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "moduleId": "foryou_16",
+                "moduleType": "SECTION_WRAPPER",
+                "config": {
+                    "title": {
+                        "label": "Featured Collections"
+                    }
+                },
+                "modules": [
+                    {
+                        "moduleId": "foryou_17",
+                        "moduleType": "CAROUSEL",
+                        "modules": [
+                            {
+                                "moduleId": "foryou_18",
+                                "moduleType": "ENTITY_CARD_VERTICAL",
+                                "config": {
+                                    "contentId": "test-show:10"
+                                }
+                            },
+                            {
+                                "moduleId": "foryou_19",
+                                "moduleType": "ENTITY_CARD_VERTICAL",
+                                "config": {
+                                    "contentId": "23432"
+                                }
+                            },
+                            {
+                                "moduleId": "foryou_20",
+                                "moduleType": "ENTITY_CARD_VERTICAL",
+                                "config": {
+                                    "contentId": "test external id"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "moduleId": "foryou_21",
+                "moduleType": "SECTION_WRAPPER",
+                "config": {
+                    "title": {
+                        "label": "Top Shows",
+                        "viewType": "AllShows"
+                    }
+                },
+                "modules": [
+                    {
+                        "moduleId": "foryou_22",
+                        "moduleType": "CAROUSEL",
+                        "modules": [
+                            {
+                                "moduleId": "foryou_23",
+                                "moduleType": "ENTITY_CARD_HORIZONTAL",
+                                "config": {
+                                    "contentId": "test-show:8",
+                                    "entityImageShape": "SQUARE"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "moduleId": "foryou_24",
+                "moduleType": "SECTION_WRAPPER",
+                "config": {
+                    "title": {
+                        "label": "Audacy Exclusives"
+                    }
+                },
+                "modules": [
+                    {
+                        "moduleId": "foryou_25",
+                        "moduleType": "CAROUSEL",
+                        "modules": [
+                            {
+                                "moduleId": "foryou_26",
+                                "moduleType": "ENTITY_CARD_VERTICAL",
+                                "config": {
+                                    "contentId": "test-show:10"
+                                }
+                            },
+                            {
+                                "moduleId": "foryou_27",
+                                "moduleType": "ENTITY_CARD_VERTICAL",
+                                "config": {
+                                    "contentId": "test-station:1"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "content": {
+            "23432": {
+                "contentId": "23432",
+                "entityType": "ORGANIZATION"
+            },
+            "test external id": {
+                "contentId": "test external id",
+                "entityType": "audacycms:cImage"
+            },
+            "test-show:8": {
+                "contentId": "test-show:8",
+                "entityType": "Show",
+                "entitySubType": "Podcast",
+                "title": "DolorAdShow"
+            },
+            "test-show:2": {
+                "contentId": "test-show:2",
+                "entityType": "Show",
+                "entitySubType": "Host-created Show",
+                "title": "BlanditiisEaShow"
+            },
+            "test-show:10": {
+                "contentId": "test-show:10",
+                "entityType": "Show",
+                "entitySubType": "Broadcast Show",
+                "title": "SitSitShow"
+            },
+            "test-station:1": {
+                "contentId": "test-station:1",
+                "entityType": "Station",
+                "entitySubType": "Personalized Radio",
+                "title": "LiberoFugaRadio"
+            },
+            "test-station:2": {
+                "contentId": "test-station:2",
+                "entityType": "Station",
+                "entitySubType": "Internet Radio",
+                "title": "TemporeSedRadio"
+            },
+            "test-show:1": {
+                "contentId": "test-show:1",
+                "entityType": "Show",
+                "entitySubType": "Host-created Show",
+                "title": "SedEstShow"
+            }
+        }
+    },
+    {
+        "id": "music",
+        "type": "MODULES",
+        "modules": [
+            {
+                "moduleId": "music_1",
+                "moduleType": "VIEW_TITLE",
+                "config": {
+                    "titleFragments": [
+                        "Music"
+                    ],
+                    "type": "LARGE"
+                }
+            },
+            {
+                "moduleId": "music_2",
+                "moduleType": "SECTION_WRAPPER",
+                "config": {
+                    "title": {
+                        "label": "Featured artists stations"
+                    }
+                },
+                "modules": [
+                    {
+                        "moduleId": "music_3",
+                        "moduleType": "CAROUSEL",
+                        "modules": [
+                            {
+                                "moduleId": "music_4",
+                                "moduleType": "ENTITY_CARD_HORIZONTAL",
+                                "config": {
+                                    "contentId": "test-station:3",
+                                    "entityImageShape": "SQUARE"
+                                }
+                            },
+                            {
+                                "moduleId": "music_5",
+                                "moduleType": "ENTITY_CARD_HORIZONTAL",
+                                "config": {
+                                    "contentId": "test-station:1",
+                                    "entityImageShape": "SQUARE"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "moduleId": "music_6",
+                "moduleType": "SECTION_WRAPPER",
+                "config": {
+                    "title": {
+                        "label": "Top local stations",
+                        "viewType": "StationCategory"
+                    },
+                    "header": {
+                        "label": "Set location",
+                        "viewType": "SelectLocation"
+                    }
+                },
+                "modules": [
+                    {
+                        "moduleId": "music_7",
+                        "moduleType": "CAROUSEL",
+                        "modules": [
+                            {
+                                "moduleId": "music_8",
+                                "moduleType": "ENTITY_CARD_HORIZONTAL",
+                                "config": {
+                                    "contentId": "test-station:2",
+                                    "entityImageShape": "SQUARE"
+                                }
+                            },
+                            {
+                                "moduleId": "music_9",
+                                "moduleType": "ENTITY_CARD_HORIZONTAL",
+                                "config": {
+                                    "contentId": "test-station:10",
+                                    "entityImageShape": "SQUARE"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "moduleId": "music_10",
+                "moduleType": "SECTION_WRAPPER",
+                "config": {
+                    "title": {
+                        "label": "Latest in music"
+                    }
+                }
+            },
+            {
+                "moduleId": "music_12",
+                "moduleType": "SECTION_WRAPPER",
+                "config": {
+                    "title": {
+                        "label": "Trending Podcasts",
+                        "viewType": "AllPodcasts"
+                    }
+                }
+            },
+            {
+                "moduleId": "music_14",
+                "moduleType": "SECTION_WRAPPER",
+                "config": {
+                    "title": {
+                        "label": "Top Shows"
+                    }
+                },
+                "modules": [
+                    {
+                        "moduleId": "music_15",
+                        "moduleType": "CAROUSEL",
+                        "modules": [
+                            {
+                                "moduleId": "music_16",
+                                "moduleType": "ENTITY_CARD_HORIZONTAL",
+                                "config": {
+                                    "contentId": "test-show:10",
+                                    "entityImageShape": "SQUARE"
+                                }
+                            },
+                            {
+                                "moduleId": "music_17",
+                                "moduleType": "ENTITY_CARD_HORIZONTAL",
+                                "config": {
+                                    "contentId": "test-show:6",
+                                    "entityImageShape": "SQUARE"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "moduleId": "music_18",
+                "moduleType": "SECTION_WRAPPER",
+                "config": {
+                    "title": {
+                        "label": "Trending Genres"
+                    }
+                },
+                "modules": [
+                    {
+                        "moduleId": "music_19",
+                        "moduleType": "CAROUSEL",
+                        "modules": [
+                            {
+                                "moduleId": "music_20",
+                                "moduleType": "ENTITY_CARD_HORIZONTAL",
+                                "config": {
+                                    "contentId": "test-show:1",
+                                    "entityImageShape": "SQUARE"
+                                }
+                            },
+                            {
+                                "moduleId": "music_21",
+                                "moduleType": "ENTITY_CARD_HORIZONTAL",
+                                "config": {
+                                    "contentId": "test-station:3",
+                                    "entityImageShape": "SQUARE"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "content": {
+            "test-show:6": {
+                "contentId": "test-show:6",
+                "entityType": "Show",
+                "entitySubType": "Host-created Show",
+                "title": "OptioIpsaShow"
+            },
+            "test-show:10": {
+                "contentId": "test-show:10",
+                "entityType": "Show",
+                "entitySubType": "Broadcast Show",
+                "title": "SitSitShow"
+            },
+            "test-station:1": {
+                "contentId": "test-station:1",
+                "entityType": "Station",
+                "entitySubType": "Personalized Radio",
+                "title": "LiberoFugaRadio"
+            },
+            "test-station:2": {
+                "contentId": "test-station:2",
+                "entityType": "Station",
+                "entitySubType": "Internet Radio",
+                "title": "TemporeSedRadio"
+            },
+            "test-station:3": {
+                "contentId": "test-station:3",
+                "entityType": "Station",
+                "entitySubType": "Broadcast Radio",
+                "title": "UndeAutRadio"
+            },
+            "test-station:10": {
+                "contentId": "test-station:10",
+                "entityType": "Station",
+                "entitySubType": "Personalized Radio",
+                "title": "NostrumAsperioresRadio"
+            },
+            "test-show:1": {
+                "contentId": "test-show:1",
+                "entityType": "Show",
+                "entitySubType": "Host-created Show",
+                "title": "SedEstShow"
+            }
+        }
+    },
+    {
+        "query": {
+            "cannedquery-topStationShowsNewsTalkSports": {
+                "name": "Top Station Shows (News & Talk, Sports)",
+                "query": "{\"script\":{\"lang\":\"mustache\",\"source\":{\"from\":0,\"size\":\"{{size}}{{^size}}15{{/size}}\",\"query\":{\"bool\":{\"must\":[{\"term\":{\"entityType.keyword\":\"SHOW\"}}],\"must_not\":[{\"match\":{\"genres.array\":\"Music\"}},{\"match\":{\"entitySubtype.keyword\":\"PODCAST\"}}]}}}}}",
+                "queryId": "cannedquery-topStationShowsNewsTalkSports",
+                "entityType": [
+                    "SHOW"
+                ],
+                "entitySubtype": [
+                    "UNKNOWN"
+                ]
+            },
+            "cannedquery-topPodcastsNewsTalkSports": {
+                "name": "Top Podcasts (News & Talk, Sports)",
+                "query": "{\"script\":{\"lang\":\"mustache\",\"source\":{\"from\":0,\"size\":\"{{size}}{{^size}}15{{/size}}\",\"query\":{\"bool\":{\"must\":[{\"term\":{\"entityType.keyword\":\"SHOW\"}},{\"term\":{\"entitySubtype.keyword\":\"PODCAST\"}}],\"must_not\":{\"match\":{\"genres.array\":\"Music\"}},\"filter\":[{\"term\":{\"deleted\":false}}]}}}}}",
+                "queryId": "cannedquery-topPodcastsNewsTalkSports",
+                "entityType": [
+                    "SHOW"
+                ],
+                "entitySubtype": [
+                    "PODCAST"
+                ]
+            },
+            "cannedquery-localNewsAndOrTalk": {
+                "name": "Local News and/or Talk Stations",
+                "query": "{\"script\":{\"lang\":\"mustache\",\"source\":{\"from\":0,\"size\":\"{{size}}{{^size}}15{{/size}}\",\"query\":{\"bool\":{\"must\":[{\"term\":{\"entityType.keyword\":\"STATION\"}},{\"term\":{\"entitySubtype.keyword\":\"BROADCAST\"}}],\"should\":[{\"term\":{\"category.keyword\":\"News\"}},{\"term\":{\"category.keyword\":\"Talk\"}}],\"minimum_should_match\":1,\"filter\":[{\"term\":{\"deleted\":false}}]}}}}}",
+                "queryId": "cannedquery-localNewsAndOrTalk",
+                "entityType": [
+                    "STATION"
+                ],
+                "entitySubtype": [
+                    "BROADCAST"
+                ]
+            }
+        },
+        "id": "newstalk",
+        "type": "MODULES",
+        "modules": [
+            {
+                "moduleId": "newstalk_1",
+                "moduleType": "VIEW_TITLE",
+                "config": {
+                    "titleFragments": [
+                        "News and Talk"
+                    ],
+                    "type": "LARGE"
+                }
+            },
+            {
+                "moduleId": "newstalk_2",
+                "moduleType": "SECTION_WRAPPER",
+                "config": {
+                    "title": {
+                        "label": "Featured sports stations"
+                    }
+                },
+                "modules": [
+                    {
+                        "moduleId": "newstalk_3",
+                        "moduleType": "CAROUSEL",
+                        "modules": [
+                            {
+                                "moduleId": "newstalk_4",
+                                "moduleType": "ENTITY_CARD_HORIZONTAL",
+                                "config": {
+                                    "contentId": "101-2522",
+                                    "entityImageShape": "SQUARE"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "moduleId": "newstalk_5",
+                "moduleType": "SECTION_WRAPPER",
+                "config": {
+                    "title": {
+                        "label": "Featured stations"
+                    }
+                },
+                "modules": [
+                    {
+                        "moduleId": "newstalk_6",
+                        "moduleType": "CAROUSEL",
+                        "modules": [
+                            {
+                                "moduleId": "newstalk_7",
+                                "moduleType": "ENTITY_CARD_HORIZONTAL",
+                                "config": {
+                                    "contentId": "101-2541",
+                                    "entityImageShape": "SQUARE"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "moduleId": "newstalk_8",
+                "moduleType": "SECTION_WRAPPER",
+                "config": {
+                    "title": {
+                        "label": "Top Local Stations"
+                    }
+                },
+                "modules": [
+                    {
+                        "moduleId": "newstalk_9",
+                        "moduleType": "CAROUSEL",
+                        "config": {
+                            "contentQuery": {
+                                "queryId": "cannedquery-localNewsAndOrTalk",
+                                "contentQueryModuleType": "ENTITY_CARD_HORIZONTAL",
+                                "min": 3,
+                                "max": 15
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "moduleId": "newstalk_10",
+                "moduleType": "SECTION_WRAPPER",
+                "config": {
+                    "title": {
+                        "label": "Latest News"
+                    }
+                },
+                "modules": [
+                    {
+                        "moduleId": "newstalk_11",
+                        "moduleType": "CAROUSEL",
+                        "config": {
+                            "itemsPerColumn": 3
+                        },
+                        "modules": [
+                            {
+                                "moduleId": "newstalk_12",
+                                "moduleType": "ENTITY_CARD_HORIZONTAL",
+                                "config": {
+                                    "contentId": "201-3ca9b8fe-d3ef-4a32-98f0-388fe351326f",
+                                    "entityImageShape": "CIRCULAR"
+                                }
+                            },
+                            {
+                                "moduleId": "newstalk_13",
+                                "moduleType": "ENTITY_CARD_HORIZONTAL",
+                                "config": {
+                                    "contentId": "201-861e0d42-ac06-4416-a663-9ea57fbde0c1",
+                                    "entityImageShape": "CIRCULAR"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "moduleId": "newstalk_14",
+                "moduleType": "SECTION_WRAPPER",
+                "config": {
+                    "title": {
+                        "label": "Trending Podcasts",
+                        "viewType": "MODULES",
+                        "viewId": "podcasts"
+                    }
+                },
+                "modules": [
+                    {
+                        "moduleId": "newstalk_15",
+                        "moduleType": "CAROUSEL",
+                        "config": {
+                            "contentQuery": {
+                                "queryId": "cannedquery-topPodcastsNewsTalkSports",
+                                "contentQueryModuleType": "ENTITY_CARD_HORIZONTAL",
+                                "min": 3,
+                                "max": 15
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "moduleId": "newstalk_16",
+                "moduleType": "SECTION_WRAPPER",
+                "config": {
+                    "title": {
+                        "label": "Top Shows",
+                        "viewType": "MODULES",
+                        "viewId": "showscategory"
+                    }
+                },
+                "modules": [
+                    {
+                        "moduleId": "newstalk_17",
+                        "moduleType": "CAROUSEL",
+                        "config": {
+                            "contentQuery": {
+                                "queryId": "cannedquery-topStationShowsNewsTalkSports",
+                                "contentQueryModuleType": "ENTITY_CARD_HORIZONTAL",
+                                "min": 3,
+                                "max": 15
+                            }
+                        }
+                    }
+                ]
+            }
+        ],
+        "content": {
+            "201-3ca9b8fe-d3ef-4a32-98f0-388fe351326f": {
+                "contentId": "201-3ca9b8fe-d3ef-4a32-98f0-388fe351326f",
+                "entityType": "EPISODE",
+                "entitySubType": "PODCAST",
+                "title": "Revolution and the culture of episodic outrage in Kenya"
+            },
+            "201-861e0d42-ac06-4416-a663-9ea57fbde0c1": {
+                "contentId": "201-861e0d42-ac06-4416-a663-9ea57fbde0c1",
+                "entityType": "EPISODE",
+                "entitySubType": "PODCAST",
+                "title": "A Case That Could Transform America’s Relationship With Guns"
+            },
+            "101-2541": {
+                "contentId": "101-2541",
+                "entityType": "STATION",
+                "entitySubType": "BROADCAST",
+                "title": "Sunny 106.3"
+            },
+            "101-2522": {
+                "contentId": "101-2522",
+                "entityType": "STATION",
+                "entitySubType": "BROADCAST",
+                "title": "98.5 The Sports Hub"
+            }
+        }
+    },
+    {
+        "id": "search",
+        "type": "MODULES",
+        "modules": [
+            {
+                "moduleId": "search_1",
+                "moduleType": "VIEW_TITLE",
+                "config": {
+                    "titleFragments": [
+                        "Browse Suggestions"
+                    ],
+                    "type": "LARGE"
+                }
+            },
+            {
+                "moduleId": "search_2",
+                "moduleType": "SECTION_WRAPPER",
+                "config": {
+                    "title": {
+                        "label": "a",
+                        "viewType": "MODULES",
+                        "viewId": "music"
+                    },
+                    "header": {
+                        "label": "b",
+                        "viewType": "MODULES",
+                        "viewId": "newstalk"
+                    },
+                    "footer": {
+                        "label": "c",
+                        "viewType": "STATION",
+                        "viewId": "stations-schedule",
+                        "contentId": "201-050cc5f4-1b4a-47c5-b072-3b00ee652185"
+                    }
+                },
+                "modules": [
+                    {
+                        "moduleId": "search_3",
+                        "moduleType": "CAROUSEL",
+                        "modules": [
+                            {
+                                "moduleId": "search_4",
+                                "moduleType": "SEARCH_PILL",
+                                "config": {
+                                    "contentId": "f75152bc-8878-4841-b80e-4628444a6597",
+                                    "label": "MLB"
+                                }
+                            },
+                            {
+                                "moduleId": "search_5",
+                                "moduleType": "SEARCH_PILL",
+                                "config": {
+                                    "contentId": "728e31e1-5dec-4541-83de-c66a834284e1",
+                                    "label": "Atlanta Braves"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "moduleId": "search_7",
+                "moduleType": "SECTION_WRAPPER",
+                "modules": [
+                    {
+                        "moduleId": "search_8",
+                        "moduleType": "CAROUSEL",
+                        "modules": [
+                            {
+                                "moduleId": "search_9",
+                                "moduleType": "ENTITY_CARD_IMAGE_GROUP",
+                                "config": {
+                                    "contentId": "101-2189",
+                                    "title": "News Stuff",
+                                    "images": [
+                                        "https://images.radio.com/salem/logos/WPGP-AM_logo.png",
+                                        "https://images.radio.com/logos/KRMG_radio-com.jpg",
+                                        "https://images.radio.com/salem/logos/WORL-AM_logo.png",
+                                        "https://images.radio.com/logos/BloombergBoston.png"
+                                    ],
+                                    "altText": "News Stuff Alt Text",
+                                    "viewId": "stations-schedule_101-2189",
+                                    "viewType": "STATION"
+                                }
+                            },
+                            {
+                                "moduleId": "search_10",
+                                "moduleType": "ENTITY_CARD_IMAGE_GROUP",
+                                "config": {
+                                    "contentId": "101-2521",
+                                    "title": "Tile Two",
+                                    "images": [
+                                        "https://images.radio.com/logos/WTICAM.jpg",
+                                        "https://images.radio.com/logos/WHIOLogo.jpg",
+                                        "https://images.radio.com/salem/logos/WDTK-AM_logo.png",
+                                        "https://images.radio.com/logos/WSBAM.png"
+                                    ],
+                                    "altText": "Tile Two Alternative Text",
+                                    "viewId": "stations-schedule_101-2521",
+                                    "viewType": "STATION"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "content": {
+            "f75152bc-8878-4841-b80e-4628444a6597": {
+                "entityType": "TAG",
+                "entitySubtype": "League",
+                "contentId": "f75152bc-8878-4841-b80e-4628444a6597",
+                "title": "MLB"
+            },
+            "728e31e1-5dec-4541-83de-c66a834284e1": {
+                "entityType": "TAG",
+                "entitySubtype": "Team",
+                "contentId": "728e31e1-5dec-4541-83de-c66a834284e1",
+                "title": "Atlanta Braves"
+            }
+        }
+    },
+    {
+        "query": {
+            "cannedquery-allMusicShows": {
+                "name": "All Shows Directory: Music",
+                "query": "{\"script\":{\"lang\":\"mustache\",\"source\":{\"from\":0,\"size\":\"{{size}}{{^size}}15{{/size}}\",\"query\":{\"bool\":{\"must\":[{\"term\":{\"entityType.keyword\":\"SHOW\"}},{\"bool\":{\"should\":[{\"match\":{\"category.keyword\":\"Music\"}}],\"minimum_should_match\":1}},{\"bool\":{\"should\":[{\"term\":{\"entitySubtype.keyword\":\"DIGITAL\"}},{\"term\":{\"entitySubtype.keyword\":\"BROADCAST\"}},{\"term\":{\"entitySubtype.keyword\":\"HOST_CREATED\"}}],\"minimum_should_match\":1}}]}},\"sort\":[{\"title.keyword\":\"asc\"}]}}}",
+                "queryId": "cannedquery-allMusicShows",
+                "entityType": [
+                    "SHOW"
+                ],
+                "entitySubtype": [
+                    "BROADCAST",
+                    "DIGITAL",
+                    "HOST_CREATED"
+                ]
+            },
+            "cannedquery-allNewsTalkShows": {
+                "name": "All Shows Directory: News & Talk",
+                "query": "{\"script\":{\"lang\":\"mustache\",\"source\":{\"from\":0,\"size\":\"{{size}}{{^size}}15{{/size}}\",\"query\":{\"bool\":{\"must\":[{\"term\":{\"entityType.keyword\":\"SHOW\"}},{\"bool\":{\"should\":[{\"match\":{\"category.keyword\":\"News & Talk\"}},{\"match\":{\"category.keyword\":\"All-News\"}}],\"minimum_should_match\":1}},{\"bool\":{\"should\":[{\"term\":{\"entitySubtype.keyword\":\"DIGITAL\"}},{\"term\":{\"entitySubtype.keyword\":\"BROADCAST\"}},{\"term\":{\"entitySubtype.keyword\":\"HOST_CREATED\"}}],\"minimum_should_match\":1}}]}},\"sort\":[{\"title.keyword\":\"asc\"}]}}}",
+                "queryId": "cannedquery-allNewsTalkShows",
+                "entityType": [
+                    "SHOW"
+                ],
+                "entitySubtype": [
+                    "BROADCAST",
+                    "DIGITAL",
+                    "HOST_CREATED"
+                ]
+            },
+            "cannedquery-localShows": {
+                "name": "Local Shows",
+                "query": "{\"script\":{\"lang\":\"mustache\",\"source\":{\"from\":0,\"size\":\"{{size}}{{^size}}15{{/size}}\",\"query\":{\"bool\":{\"must\":[{\"term\":{\"entityType.keyword\":\"SHOW\"}},{\"match\":{\"relationships.markets.keyword\":\"{{userMarket}}\"}}],\"should\":[{\"term\":{\"entitySubtype.keyword\":\"DIGITAL\"}},{\"term\":{\"entitySubtype.keyword\":\"BROADCAST\"}},{\"term\":{\"entitySubtype.keyword\":\"HOST_CREATED\"}}],\"minimum_should_match\":1}},\"sort\":[{\"title.keyword\":\"asc\"}]}}}",
+                "queryId": "cannedquery-localShows",
+                "entityType": [
+                    "SHOW"
+                ],
+                "entitySubtype": [
+                    "DIGITAL",
+                    "BROADCAST",
+                    "HOST_CREATED"
+                ]
+            }
+        },
+        "id": "shows",
+        "type": "MODULES",
+        "modules": [
+            {
+                "moduleId": "shows_1",
+                "moduleType": "VIEW_TITLE",
+                "config": {
+                    "titleFragments": [
+                        "All Shows Directory"
+                    ],
+                    "type": "LARGE"
+                }
+            },
+            {
+                "moduleId": "shows_2",
+                "moduleType": "SECTION_WRAPPER",
+                "config": {
+                    "title": {
+                        "label": "Local shows"
+                    }
+                },
+                "modules": [
+                    {
+                        "moduleId": "shows_3",
+                        "moduleType": "CAROUSEL",
+                        "config": {
+                            "contentQuery": {
+                                "queryId": "cannedquery-localShows",
+                                "contentQueryModuleType": "ENTITY_CARD_HORIZONTAL",
+                                "min": 3,
+                                "max": 15
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "moduleId": "shows_4",
+                "moduleType": "SECTION_WRAPPER",
+                "config": {
+                    "title": {
+                        "label": "Sports",
+                        "viewType": "ShowCategory"
+                    }
+                },
+                "modules": [
+                    {
+                        "moduleId": "shows_5",
+                        "moduleType": "CAROUSEL",
+                        "modules": [
+                            {
+                                "moduleId": "shows_6",
+                                "moduleType": "ENTITY_CARD_HORIZONTAL",
+                                "config": {
+                                    "contentId": "302-809b6f64-56d5-439b-b486-bc78c457d9de",
+                                    "entityImageShape": "SQUARE"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "moduleId": "shows_7",
+                "moduleType": "SECTION_WRAPPER",
+                "config": {
+                    "title": {
+                        "label": "News & Talk",
+                        "viewType": "ShowCategory"
+                    }
+                },
+                "modules": [
+                    {
+                        "moduleId": "shows_8",
+                        "moduleType": "CAROUSEL",
+                        "config": {
+                            "contentQuery": {
+                                "queryId": "cannedquery-allNewsTalkShows",
+                                "contentQueryModuleType": "ENTITY_CARD_HORIZONTAL",
+                                "min": 3,
+                                "max": 15
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "moduleId": "shows_9",
+                "moduleType": "SECTION_WRAPPER",
+                "config": {
+                    "title": {
+                        "label": "Music",
+                        "viewType": "ShowCategory"
+                    }
+                },
+                "modules": [
+                    {
+                        "moduleId": "shows_10",
+                        "moduleType": "CAROUSEL",
+                        "config": {
+                            "contentQuery": {
+                                "queryId": "cannedquery-allMusicShows",
+                                "contentQueryModuleType": "ENTITY_CARD_HORIZONTAL",
+                                "min": 3,
+                                "max": 15
+                            }
+                        }
+                    }
+                ]
+            }
+        ],
+        "content": {
+            "302-809b6f64-56d5-439b-b486-bc78c457d9de": {
+                "contentId": "302-809b6f64-56d5-439b-b486-bc78c457d9de",
+                "entityType": "SHOW",
+                "entitySubType": "PODCAST",
+                "title": "Importancia del Marketing"
+            }
+        }
+    },
+    {
+        "query": {
+            "cannedquery-fiveMostRecentEpisodes": {
+                "name": "Five Most Recent Episodes",
+                "query": "{\"script\":{\"lang\":\"mustache\",\"source\":{\"from\":0,\"size\":\"{{size}}{{^size}}5{{/size}}\",\"query\":{\"bool\":{\"must\":[{\"term\":{\"entityType.keyword\":\"EPISODE\"}},{\"match\":{\"relationships.shows.keyword\":\"{{contentId}}\"}}]}},\"sort\":[{\"publishDate\":{\"order\":\"desc\"}}]}}}",
+                "queryId": "cannedquery-fiveMostRecentEpisodes",
+                "entityType": [
+                    "EPISODE"
+                ],
+                "entitySubtype": [
+                    "UNKNOWN"
+                ],
+                "params": [
+                    "contentId"
+                ]
+            }
+        },
+        "id": "shows_default",
+        "type": "SHOW",
+        "modules": [
+            {
+                "moduleId": "shows_default_1",
+                "moduleType": "VIEW_TITLE",
+                "config": {
+                    "titleFragments": [
+                        "Shows Default Page"
+                    ]
+                }
+            },
+            {
+                "moduleId": "shows_default_2",
+                "moduleType": "SECTION_WRAPPER",
+                "config": {
+                    "title": {
+                        "label": "Live Now"
+                    },
+                    "footer": {
+                        "label": "See all chapters",
+                        "viewType": "SHOW",
+                        "viewIdTemplate": "chapters_<contentId>"
+                    }
+                },
+                "modules": [
+                    {
+                        "moduleId": "shows_default_3",
+                        "moduleType": "CAROUSEL",
+                        "config": {
+                            "requestId": "LIVE_NOW"
+                        }
+                    }
+                ]
+            },
+            {
+                "moduleId": "shows_default_4",
+                "moduleType": "SECTION_WRAPPER",
+                "config": {
+                    "title": {
+                        "label": "Previous Episode"
+                    },
+                    "footer": {
+                        "label": "Episode detail >",
+                        "viewType": "SHOW",
+                        "viewIdTemplate": "latest-episode_<contentId>"
+                    }
+                },
+                "modules": [
+                    {
+                        "moduleId": "shows_default_5",
+                        "moduleType": "CAROUSEL",
+                        "config": {
+                            "requestId": "PREVIOUS_EPISODE"
+                        }
+                    }
+                ]
+            },
+            {
+                "moduleId": "shows_default_6",
+                "moduleType": "SECTION_WRAPPER",
+                "config": {
+                    "title": {
+                        "label": "5 most recent episodes"
+                    }
+                },
+                "modules": [
+                    {
+                        "moduleId": "shows_default_7",
+                        "moduleType": "CAROUSEL",
+                        "config": {
+                            "contentQuery": {
+                                "queryId": "cannedquery-fiveMostRecentEpisodes",
+                                "contentQueryModuleType": "ENTITY_CARD_VERTICAL",
+                                "min": 1,
+                                "max": 15,
+                                "params": {
+                                    "contentId": "contentId"
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "stations_default",
+        "type": "MODULES",
+        "modules": [
+            {
+                "moduleId": "stations_default_1",
+                "moduleType": "VIEW_TITLE",
+                "config": {
+                    "titleFragments": [
+                        "Exclusive Stations"
+                    ]
+                }
+            },
+            {
+                "moduleId": "stations_default_2",
+                "moduleType": "STATION_LIVE_NOW",
+                "config": {
+                    "title": {
+                        "label": "Live Now"
+                    }
+                }
+            },
+            {
+                "moduleId": "stations_default_3",
+                "moduleType": "SECTION_WRAPPER",
+                "config": {
+                    "title": {
+                        "label": "Similar Stations",
+                        "viewType": "AllStations"
+                    }
+                },
+                "modules": [
+                    {
+                        "moduleId": "stations_default_4",
+                        "moduleType": "CAROUSEL",
+                        "modules": [
+                            {
+                                "moduleId": "stations_default_5",
+                                "moduleType": "ENTITY_CARD_HORIZONTAL",
+                                "config": {
+                                    "contentId": "test-station:2"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "content": {
+            "test-station:2": {
+                "contentId": "test-station:2",
+                "entityType": "Station",
+                "entitySubType": "Internet Radio",
+                "title": "TemporeSedRadio"
+            }
+        }
+    },
+    {
+        "query": {
+            "cannedquery-topTagStations": {
+                "name": "Top Stations By Tag",
+                "query": "{\"script\":{\"lang\":\"mustache\",\"source\":{\"from\":0,\"size\":\"{{size}}{{^size}}15{{/size}}\",\"query\":{\"bool\":{\"must\":[{\"term\":{\"entityType.keyword\":\"STATION\"}},{\"term\":{\"tags.id.keyword\":\"{{contentId}}\"}}],\"filter\":[{\"term\":{\"deleted\":false}}]}}}}}",
+                "queryId": "cannedquery-topTagStations",
+                "entityType": [
+                    "STATIONS"
+                ],
+                "entitySubtype": [
+                    "BROADCAST_RADIO",
+                    "EXCLUSIVE_STATION",
+                    "INTERNET_RADIO",
+                    "TOPIC_BASED"
+                ],
+                "params": [
+                    "contentId"
+                ]
+            }
+        },
+        "id": "sports_default",
+        "type": "MODULES",
+        "modules": [
+            {
+                "moduleId": "sports_default_1",
+                "moduleType": "VIEW_TITLE",
+                "config": {
+                    "titleFragments": [
+                        "Sports Team Page"
+                    ]
+                }
+            },
+            {
+                "moduleId": "sports_default_2",
+                "moduleType": "SECTION_WRAPPER",
+                "config": {
+                    "title": {
+                        "label": "Latest Coverage",
+                        "viewType": "SportsTeamNews"
+                    }
+                }
+            },
+            {
+                "moduleId": "sports_default_4",
+                "moduleType": "SECTION_WRAPPER",
+                "config": {
+                    "title": {
+                        "label": "Shows about the <team>"
+                    }
+                },
+                "modules": [
+                    {
+                        "moduleId": "sports_default_5",
+                        "moduleType": "CAROUSEL",
+                        "modules": [
+                            {
+                                "moduleId": "sports_default_6",
+                                "moduleType": "ENTITY_CARD_HORIZONTAL",
+                                "config": {
+                                    "contentId": "test-show:3"
+                                }
+                            },
+                            {
+                                "moduleId": "sports_default_7",
+                                "moduleType": "ENTITY_CARD_HORIZONTAL",
+                                "config": {
+                                    "contentId": "test-show:4"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "moduleId": "sports_default_8",
+                "moduleType": "SECTION_WRAPPER",
+                "config": {
+                    "title": {
+                        "label": "Stations about the <team>",
+                        "viewType": "SportsTeamStation"
+                    }
+                },
+                "modules": [
+                    {
+                        "moduleId": "sports_default_9",
+                        "moduleType": "CAROUSEL",
+                        "config": {
+                            "contentQuery": {
+                                "queryId": "cannedquery-topTagStations",
+                                "contentQueryModuleType": "ENTITY_CARD_HORIZONTAL",
+                                "min": 3,
+                                "max": 15,
+                                "params": {
+                                    "contentId": "contentId"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "moduleId": "sports_default_10",
+                "moduleType": "SECTION_WRAPPER",
+                "config": {
+                    "title": {
+                        "label": "Podcasts about the <tea>",
+                        "viewType": "SportsTeamPodcasts"
+                    }
+                },
+                "modules": [
+                    {
+                        "moduleId": "sports_default_11",
+                        "moduleType": "CAROUSEL",
+                        "modules": [
+                            {
+                                "moduleId": "sports_default_12",
+                                "moduleType": "ENTITY_CARD_HORIZONTAL",
+                                "config": {
+                                    "contentId": "test-show:2"
+                                }
+                            },
+                            {
+                                "moduleId": "sports_default_13",
+                                "moduleType": "ENTITY_CARD_HORIZONTAL",
+                                "config": {
+                                    "contentId": "test-show:6"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "content": {
+            "test-show:6": {
+                "contentId": "test-show:6",
+                "entityType": "Show",
+                "entitySubType": "Host-created Show",
+                "title": "OptioIpsaShow"
+            },
+            "test-show:2": {
+                "contentId": "test-show:2",
+                "entityType": "Show",
+                "entitySubType": "Host-created Show",
+                "title": "BlanditiisEaShow"
+            },
+            "test-show:3": {
+                "contentId": "test-show:3",
+                "entityType": "Show",
+                "entitySubType": "Digital-Only Show",
+                "title": "MagnamDucimusShow"
+            },
+            "test-show:4": {
+                "contentId": "test-show:4",
+                "entityType": "Show",
+                "entitySubType": "Podcast",
+                "title": "AnimiVeritatisShow"
+            }
+        }
+    },
+    {
+        "id": "sportsleagues_default",
+        "type": "MODULES",
+        "modules": [
+            {
+                "moduleId": "sportsleagues_default_1",
+                "moduleType": "VIEW_TITLE",
+                "config": {
+                    "titleFragments": [
+                        "Sports League Default"
+                    ]
+                }
+            },
+            {
+                "moduleId": "sportsleagues_default_2",
+                "moduleType": "SECTION_WRAPPER",
+                "config": {
+                    "title": {
+                        "label": "Shows about league"
+                    }
+                },
+                "modules": [
+                    {
+                        "moduleId": "sportsleagues_default_3",
+                        "moduleType": "CAROUSEL",
+                        "modules": [
+                            {
+                                "moduleId": "sportsleagues_default_4",
+                                "moduleType": "ENTITY_CARD_VERTICAL",
+                                "config": {
+                                    "contentId": "302-809b6f64-56d5-439b-b486-bc78c457d9de"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "moduleId": "sportsleagues_default_5",
+                "moduleType": "SECTION_WRAPPER",
+                "config": {
+                    "title": {
+                        "label": "Stations about league"
+                    }
+                },
+                "modules": [
+                    {
+                        "moduleId": "sportsleagues_default_6",
+                        "moduleType": "CAROUSEL",
+                        "modules": [
+                            {
+                                "moduleId": "sportsleagues_default_7",
+                                "moduleType": "ENTITY_CARD_VERTICAL",
+                                "config": {
+                                    "contentId": "101-3428"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "moduleId": "sportsleagues_default_8",
+                "moduleType": "SECTION_WRAPPER",
+                "config": {
+                    "title": {
+                        "label": "Podcasts about league"
+                    }
+                },
+                "modules": [
+                    {
+                        "moduleId": "sportsleagues_default_9",
+                        "moduleType": "CAROUSEL",
+                        "modules": [
+                            {
+                                "moduleId": "sportsleagues_default_10",
+                                "moduleType": "ENTITY_CARD_VERTICAL",
+                                "config": {
+                                    "contentId": "302-0ceb6274-5cb9-4560-aa8b-e88a665950b9"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "content": {
+            "101-3428": {
+                "contentId": "101-3428",
+                "entityType": "STATION",
+                "entitySubType": "BROADCAST",
+                "title": "Famous Idaho Potato Bowl"
+            },
+            "302-0ceb6274-5cb9-4560-aa8b-e88a665950b9": {
+                "contentId": "302-0ceb6274-5cb9-4560-aa8b-e88a665950b9",
+                "entityType": "SHOW",
+                "entitySubType": "PODCAST",
+                "title": "Jonathan del Strother's posts"
+            },
+            "302-809b6f64-56d5-439b-b486-bc78c457d9de": {
+                "contentId": "302-809b6f64-56d5-439b-b486-bc78c457d9de",
+                "entityType": "SHOW",
+                "entitySubType": "PODCAST",
+                "title": "Importancia del Marketing"
+            }
+        }
+    },
+    {
+        "query": {
+            "cannedquery-topTagStations": {
+                "name": "Top Stations By Tag",
+                "query": "{\"script\":{\"lang\":\"mustache\",\"source\":{\"from\":0,\"size\":\"{{size}}{{^size}}15{{/size}}\",\"query\":{\"bool\":{\"must\":[{\"term\":{\"entityType.keyword\":\"STATION\"}},{\"term\":{\"tags.id.keyword\":\"{{contentId}}\"}}],\"filter\":[{\"term\":{\"deleted\":false}}]}}}}}",
+                "queryId": "cannedquery-topTagStations",
+                "entityType": [
+                    "STATIONS"
+                ],
+                "entitySubtype": [
+                    "BROADCAST_RADIO",
+                    "EXCLUSIVE_STATION",
+                    "INTERNET_RADIO",
+                    "TOPIC_BASED"
+                ],
+                "params": [
+                    "contentId"
+                ]
+            }
+        },
+        "id": "sportsteams_default",
+        "type": "MODULES",
+        "modules": [
+            {
+                "moduleId": "sportsteams_default_1",
+                "moduleType": "VIEW_TITLE",
+                "config": {
+                    "titleFragments": [
+                        "Sports Teams Default"
+                    ]
+                }
+            },
+            {
+                "moduleId": "sportsteams_default_2",
+                "moduleType": "SECTION_WRAPPER",
+                "config": {
+                    "title": {
+                        "label": "Top team shows"
+                    }
+                },
+                "modules": [
+                    {
+                        "moduleId": "sportsteams_default_3",
+                        "moduleType": "CAROUSEL",
+                        "modules": [
+                            {
+                                "moduleId": "sportsteams_default_4",
+                                "moduleType": "ENTITY_CARD_VERTICAL",
+                                "config": {
+                                    "contentId": "test-show:3"
+                                }
+                            },
+                            {
+                                "moduleId": "sportsteams_default_5",
+                                "moduleType": "ENTITY_CARD_VERTICAL",
+                                "config": {
+                                    "contentId": "test-show:4"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "moduleId": "sportsteams_default_6",
+                "moduleType": "SECTION_WRAPPER",
+                "config": {
+                    "title": {
+                        "label": "Top team stations"
+                    }
+                },
+                "modules": [
+                    {
+                        "moduleId": "sportsteams_default_7",
+                        "moduleType": "CAROUSEL",
+                        "config": {
+                            "contentQuery": {
+                                "queryId": "cannedquery-topTagStations",
+                                "contentQueryModuleType": "ENTITY_CARD_VERTICAL",
+                                "min": 3,
+                                "max": 15,
+                                "params": {
+                                    "contentId": "contentId"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "moduleId": "sportsteams_default_8",
+                "moduleType": "SECTION_WRAPPER",
+                "config": {
+                    "title": {
+                        "label": "Top team podcasts"
+                    }
+                },
+                "modules": [
+                    {
+                        "moduleId": "sportsteams_default_9",
+                        "moduleType": "CAROUSEL",
+                        "modules": [
+                            {
+                                "moduleId": "sportsteams_default_10",
+                                "moduleType": "ENTITY_CARD_VERTICAL",
+                                "config": {
+                                    "contentId": "test-show:2"
+                                }
+                            },
+                            {
+                                "moduleId": "sportsteams_default_11",
+                                "moduleType": "ENTITY_CARD_VERTICAL",
+                                "config": {
+                                    "contentId": "test-show:6"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "content": {
+            "test-show:6": {
+                "contentId": "test-show:6",
+                "entityType": "Show",
+                "entitySubType": "Host-created Show",
+                "title": "OptioIpsaShow"
+            },
+            "test-show:2": {
+                "contentId": "test-show:2",
+                "entityType": "Show",
+                "entitySubType": "Host-created Show",
+                "title": "BlanditiisEaShow"
+            },
+            "test-show:3": {
+                "contentId": "test-show:3",
+                "entityType": "Show",
+                "entitySubType": "Digital-Only Show",
+                "title": "MagnamDucimusShow"
+            },
+            "test-show:4": {
+                "contentId": "test-show:4",
+                "entityType": "Show",
+                "entitySubType": "Podcast",
+                "title": "AnimiVeritatisShow"
+            }
+        }
+    },
+    {
+        "id": "test",
+        "type": "MODULES",
+        "modules": [
+            {
+                "moduleId": "test_1",
+                "moduleType": "VIEW_TITLE",
+                "config": {
+                    "titleFragments": [
+                        "Testing Stuff"
+                    ],
+                    "type": "LARGE"
+                }
+            },
+            {
+                "moduleId": "test_2",
+                "moduleType": "SECTION_WRAPPER",
+                "config": {
+                    "title": {
+                        "label": "Felix Shows"
+                    },
+                    "header": {
+                        "label": "Curated Shows by Felix"
+                    }
+                }
+            },
+            {
+                "moduleId": "test_4",
+                "config": {}
+            },
+            {
+                "moduleId": "test_6",
+                "moduleType": "SECTION_WRAPPER"
+            }
+        ]
+    },
+    {
+        "id": "302-5219dbac-2991-42de-be8f-375fa8f2efbd",
+        "type": "MODULES",
+        "modules": [
+            {
+                "moduleId": "302-5219dbac-2991-42de-be8f-375fa8f2efbd_1",
+                "moduleType": "VIEW_TITLE",
+                "config": {
+                    "titleFragments": [
+                        "Haha {{contentObj.title}}"
+                    ],
+                    "type": "LARGE"
+                }
+            },
+            {
+                "moduleId": "302-5219dbac-2991-42de-be8f-375fa8f2efbd_2",
+                "moduleType": "LIVE_NOW",
+                "config": {
+                    "title": {
+                        "label": "Live Now"
+                    }
+                }
+            }
+        ]
+    }
+]
